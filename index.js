@@ -5,13 +5,12 @@ function bfs(rootNode, vertices, edges) {
     queue.push(rootNode);
     while (queue && queue.length) {
         let first = queue.shift();
-        console.log("IJWEFIJWEF",first.name);
-        array.push(first.name);
+        array.push(first);
         let adjacentNodes = findAdjacent(first.name, vertices, edges);
         markDistanceAndPredecessor(first, adjacentNodes);
         queue.push(...adjacentNodes);        
     }
-    return array.replace(/'/g, '"');;
+    return array;
 }
 
 function findAdjacent(node, vertices, edges) {
